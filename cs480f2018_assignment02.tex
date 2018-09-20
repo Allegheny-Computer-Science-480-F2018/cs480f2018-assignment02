@@ -1,0 +1,195 @@
+\documentclass[11pt]{article}
+\newcommand{\command}[1]{``\lstinline{#1}''}
+\newcommand{\program}[1]{\lstinline{#1}}
+%\newcommand{\url}[1]{\lstinline{#1}}
+\newcommand{\channel}[1]{\lstinline{#1}}
+\newcommand{\option}[1]{``{#1}''}
+\newcommand{\step}[1]{``{#1}''}
+
+\newcommand{\assignmentduedate}{27 September}
+\newcommand{\assignmentassignedate}{ 13 September}
+\newcommand{\assignmentnumber}{Two}
+
+\newcommand{\labyear}{2018}
+\newcommand{\labtime}{2:30 pm}
+
+\newcommand{\assigneddate}{Assigned:  \assignmentassignedate, \labyear{} at \labtime{}}
+\newcommand{\duedate}{Due:  \assignmentduedate, \labyear{} at \labtime{}}
+
+
+\usepackage{listings}
+\lstset{
+  basicstyle=\small\ttfamily,
+  columns=flexible,
+  breaklines=true
+}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=magenta,
+}
+
+\usepackage{fancyhdr}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+\fancyhf{}
+\rhead{Computer Science 480}
+\lhead{ Assignment \assignmentnumber{}}
+\rfoot{Page \thepage}
+\lfoot{\duedate}
+
+\usepackage{titlesec}
+\titlespacing\section{0pt}{6pt plus 4pt minus 2pt}{4pt plus 2pt minus 2pt}
+
+\newcommand{\labtitle}[1]
+{
+  \begin{center}
+    \begin{center}
+      \bf
+      CMPSC 480 \\ Software Innovation I\\
+      Fall 2018\\
+      \medskip
+    \end{center}
+    \bf
+    #1
+  \end{center}
+}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\labtitle{Assignment \assignmentnumber{} }
+\begin{center} \textbf{ \assigneddate{} \\ \duedate{} } \end{center} 
+\noindent \textbf{ }
+
+\vspace{-0.05in}
+\section*{Objectives}
+
+To learn the basic strategies for designing an effective professional website. To develop an appropriate marketing strategy for the skills and the preferred career trajectory of oneself and to determine how to organize the professional website to present one's abilities. To learn about a platform, called Netlify, that allows to automate modern web projects. To explore how to use the GitHub platform to store the website content and integrate it with Netlify. \textbf{To create, build and deploy a static website using GitHub and Netlify. To start generating the traffic to your site and start analyzing the data that is created. }
+
+\vspace{-0.05in}
+\section*{Reading Assignment}
+
+To do well on this assignment, you
+should first read the \href{https://www.netlify.com/blog/}{Netlify Blog}. 
+Next, you should learn about static site generators by reading \href{https://www.netlify.com/blog/2018/07/12/the-reign-of-static-site-generators-/}{The Reign of Static Site Generators} .
+Finally, you should consider obtaining your own domain, for example using \href{https://domains.google/#/}{Google Domains}.
+
+\vspace{-0.05in}
+\section*{Professional Website for Computer Scientists}
+
+Many online articles, such as \href{https://www.forbes.com/sites/jacquelynsmith/2013/04/26/why-every-job-seeker-should-have-a-personal-website-and-what-it-should-include/#4a1aa6c3119e}{Why Every Job Seeker Should Have a Personal Website} discuss the benefits of  professionals having their own websites and what it should include. A professional website can set you apart from other professionals in the field and can be utilized as a single resource for obtaining information about you. It is a resource that you can control! You should think of your website as an opening door to your professional portfolio. There are a number of items your website should contain, including:
+\vspace{-0.05in}
+\begin{itemize}
+	\item Authentic personality (think about the layout, colors, content of the text, etc.);
+	\item An introduction (either a catchy, short description or a bio consisting of a short paragraph);
+	\item Resume;
+	\item Link to open source contributions and projects.
+\end{itemize}
+\vspace{-0.05in}
+
+Therefore, your first task is to develop the \emph{concept for your website}. You should decide on the theme of your website (how do you want others to perceive you once they land on your site), including the overall layout, color scheme, and the presentation of the textual content about yourself. Please discuss your ideas with your course colleagues and the course instructor. 
+
+\vspace{-0.05in}
+\section*{GitHub repository}
+
+As you will use a GitHub repository to store your website files, please follow the steps below to set up and configure your GitHub account. You may skip any steps that you have already done in previous classes.
+
+\begin{enumerate}
+  \item If you do not already have a GitHub account, then please go to the GitHub website (\url{https://github.com/}) and create one, making sure
+    that you use your \command{allegheny.edu} email address so that you can join GitHub as a student at an accredited
+    educational institution. 
+   \item Now, please add a description of yourself and an appropriate professional photograph to your GitHub profile. 
+  \item If you have never done so before, you should use the \command{ssh-keygen} program to create secure-shell keys that
+    you can use to support your communication with GitHub. You will now need to type the \command{ssh-keygen} command in the terminal. Follow
+    the prompts to create your keys and save them in the default directory. That is, you should press ``Enter'' after
+    you are prompted to \command{Enter file in which to save the key ...  :}.
+
+  \item Once you have created your ssh keys, you should look in the right corner for
+    an account avatar with a down arrow. Click on this link and then select the ``Settings'' option. Now, scroll down
+    until you find the ``SSH and GPG keys'' label on the left, click to create a ``New SSH key'', and then upload your
+    ssh key to GitHub. You can copy your SSH key to the clipboard by going to the terminal and typing ``{\tt cat
+    \textasciitilde{}/.ssh/id\_rsa.pub}'' command and then highlighting this output. When you are completing this step
+    in your terminal window, please make sure that you only highlight the letters and numbers in your key---if you
+    highlight any extra symbols or spaces then this step may not work correctly. Then, paste this into the GitHub text
+    field in your web browser.
+    
+    \end{enumerate}
+
+\vspace{-0.05in}
+\section*{Creating a Static Website on Netlify}
+
+Static websites  take the content of the website, usually stored in flat files instead of databases, apply it against layouts or templates and generate a structure of purely static files that are ready to be deployed and viewed by the public. Static site generators pre-build the website into static files for deployment, but allow developers to create a powerful, server-based website locally. For example, Obama's presidential campaign in 2012 raised $\$250M$ through a Jekyll website and in 2013, \url{Healthcare.gov} switched to an approach using Jekyll as well. Static sites are powering large projects and are not just limited to blogging. There is also a strong open source community maintaining and pushing forward a wide range of engines with different flavours and features. In addition to Jekyll, \href{https://www.staticgen.com/}{static site generators} such as  Hugo and Next are also widely used.
+
+We will use a platform called Netlify, which  is  a new generation of site and app host that is designed to give developers a place for storing files, deploying and developing apps or running a website all in one. You will store the website content in a GitHub repository and then link from Netlify to GitHub to deploy your site by clicking on ``New Site from Git'', connecting to the GitHub, selecting the correct repository, and then identifying build options before finally deploying your site as outlined in the \href{https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/}{Guide on Deploying on Netlify}. 
+
+You second task is to get to know Netlify and available static generators by reading relevant \href{https://www.netlify.com/blog/}{Netlify Blogs} and trying to follow the workflow by creating a  GitHub repository with website content, linking  to it from Netlify, and finally building and deploying your sample site. Feel free to explore \href{https://templates.netlify.com/}{Netlify Templates} and \href{https://github.com/netlify-templates}{Netlify Templates on GitHub} as a starting point.
+
+\textbf{Once you are comfortable using the tools outlined above, your next task is to create your own website. At the minimum, your website should contain the following characteristics: }
+\begin{enumerate}
+	\item \textbf{Have an inviting theme. }
+	\item \textbf{Land on an attention capturing introduction page.}
+	\item \textbf{Contain a link to your GitHub account.}
+\end{enumerate}
+
+Additionally, the GitHub repository containing your website files has to contain a well-documented README file that contains the project name and description and explains the tools used to create your website and provides instructions on how to install and to build it. Please make sure to give proper credits if relevant. Please read all of the relevant ``GitHub Guides'', available at
+\url{https://guides.github.com/}, that explain how to use many of the features that GitHub provides. In particular,
+please make sure that you have read guides such as ``Mastering Markdown'' and ``Documenting Your Projects on GitHub'';
+each of them will help you to understand how to use both GitHub and GitHub Classroom. 
+
+\textbf{If you are just beginning to create your website it maybe less overwhelming to start with an existing template. For example, to use {\tt Hugo} you can follow these steps:}
+\begin{itemize}
+	\item \textbf{Find and clone a \href{https://github.com/netlify-templates/victor-hugo}{Netlify template repository for Hugo}. Alternatively, you can follow the steps outlined in \href{https://gohugo.io/getting-started/quick-start/}{Quick start with Hugo} and then \href{https://gohugo.io/hosting-and-deployment/hosting-on-netlify/}{Hosting on Netlify}.} 
+	\item \textbf{Create your own repository with the contents of the cloned repository. }
+	\item \textbf{Go to the Netlify's website, choose ``New site from Git'', click on ``Github'', choose the newly created repository, verify the specified settings, and then click on ``Deploy Site''.}
+	\item \textbf{You will see that Netlify creates a random link ending with {\tt netlify.com}. You can click on that link to see your published site.}
+	\item \textbf{Now, go to ``Site Settings'' and change the site name to something more meaningful. In case you have your own domain name click on ``Domain Settings'' and add your custom domain.}
+	\item \textbf{Finally, try to make a small change in your repository (for example, modify {\tt site/layouts/index.html}). Then build the site locally using the {\tt npm} command. When you are ready to commit the changes and deploy your updated site, type appropriate {\tt git commit} and {\tt git push} commands. If you return to Netlify's website, you should see it building your site. Once the building is complete your changes should be published on your website.}
+	\item Now you can begin to further customize the template to make your site.
+\end{itemize}
+
+
+\vspace{-0.05in}
+\section*{Analyzing Traffic of your Website}
+\textbf{Once you have created a professional website you should link to it from your social media accounts. At the minimum, you have to add your website link in the ``See contact Info'' section of your LinkedIn profile.}
+
+\textbf{Now you should add appropriate analytics to see where the traffic  to your website is coming from, so that you can adjust your website design strategy. We will use Google Analytics tool, however, you are welcome to utilize another tool instead. First, visit \href{Google Analytics site}{https://analytics.google.com} and get the tracking ID (``Admin'' $\rightarrow$ ``Tracking Info'' $\rightarrow$ ``Tracking Code''. Now go to your Netlify account, click on the ``Deploys" tab, then ``Deploy Settings'', find a subsection titled ``Snippet injection'', finally copy and paste Google Analytics tracking .js code. }
+
+\textbf{Over the next few weeks you are to observe the analytics data produced. In particular, pay close attention to the social media traffic report, which can be viewed by going to ``Acquisition'' and then ``Social'' (as a reference see \href{https://www.linkedin.com/pulse/using-google-analytics-measure-social-media-outcome-priyanka-gupta/}{Using Google Analytics to Measure Social Media Outcome}).} 
+
+\textbf{Although it is optional,  consider setting up {\tt analytics.js} to measure social interactions. This allows you to analyze the user interaction with embedded social network buttons. You can follow instructions on \href{https://support.google.com/analytics/answer/6209874}{About Social plugins and interactions} and \href{https://developers.google.com/analytics/devguides/collection/analyticsjs/social-interactions}{Social Interactions}.}
+
+%https://www.socialmediaexaminer.com/how-to-measure-social-media-using-google-analytics-reports/
+
+%https://neilpatel.com/blog/google-analytics-social-reports/
+
+%Social (Twitter, Facebook, Instagram,LinkedIn etc.)
+
+\vspace{-0.05in}
+\section*{Preparation for the Peer Review}
+
+\textbf{During our next class session you will be asked to perform peer review of each other's websites. Please make sure  that you have joined the course organization and that the GitHub repository for your website is created within the course organization. At the end of the semester you will be asked to transfer ownership from the organization to your personal account.  }
+
+\section*{Deliverables and Evaluation}
+You are invited to submit a completed website that is properly deployed using Netlify by the due date stated in this assignment. The goal of the first week of the assignment is for you to get to know the tools and practice using them, in addition to developing conceptual ideas regarding your website. Before the beginning of the second week of the assignment you should have a general concept of the main page for your website, select a site generator you plan to use, and select a unique name for your page, optionally also purchasing a domain name.
+\textbf{
+Specifically, you are asked to submit the following materials:}
+\begin{enumerate}
+	\item \textbf{GitHub repository titled as the name of your website. This repository needs to be created inside the course organization \href{https://github.com/orgs/Allegheny-Computer-Science-480-F2018}{Allegheny-Computer-Science-480-F2018}. Finally, your website repository should contain:}
+	\begin{itemize}
+		\item \textbf{Properly documented README.}
+		\item\textbf{ All of the necessary files to build your website. }
+	\end{itemize}	 
+\end{enumerate}
+
+\textbf{The instructor will evaluate your website based on the timeliness of its submission (last commit before the due date will be graded), whether your website builds correctly, and whether it satisfies the characteristics of the website outlined in the sections above.}
+
+\end{document}
