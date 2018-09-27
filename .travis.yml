@@ -5,11 +5,4 @@ before_install:
 script:
 - mkdir _build
 - latexmk -pdf -outdir=_build cs480f2018_assignment02.tex
-deploy:
-  provider: releases
-  api_key:
-    secure: EdXyIppsPoADDNo1mBG1QV/b9pieo+AF6HhIcWQOzqYcdjCaqy6Ei3V16+oUPtUyfA+WPmVEISQidsiT7d21fqm0LXdnICNmGiWHNgIZtzsBZpAzb8I2kXCZnrDREr1tmfgtOaGZ6KDccTzLwFxvEZJjj0Q1vvgdGuysvd/Bwg0cFEg7U0W/arFezPgYMynAHGzwqGbEQmT25FFmk6Z6pA+OCRbE/fBGOUULxYQWBnCkKSydAcEgoWKsyfWDsg9YnVmLVBGgoeHHyopOToX/t78lN4VqHMavHB27EhkBTvm1mqGo/jF/KIw1scJD0uNJWq7WcnJLgEh9GC2ZZKgnN9jMJBsMQErXRTzVPlyDN1FyhciYxuAhx2Gbn16bez/s0oOu2Z9pIssoM0+SyAeTVY8H9pg2y5t3A/Np6jXzOa/bfc5PRZ1+RTEB+Bitj6Jva8n6OSubFcP/LFYtabcpsTyutVVPBej89CzswJdw+Jdlh5uyueNv51VxSvK9eLeQGnZUJcRxlZr1yX0ow0mhYVquT4+W2POISbhpPYjhxdzK4cYX5LBU0z0InVKZE6ws9TDMHHSX14SHda0nb7lIZDdjeQ+bF00YIEtV9Om3d2HnFtD/L7miIFAOFQZmtduu+dY0X7z37v2YSAjqz0kLw7f/e+X37a811dGevUj7HLQ=
-  file: _build/cs480f2018_assignment02.pdf
-skip_cleanup: true
- on:
-  tags: true
+tags: true
